@@ -46,7 +46,25 @@ class Chantilly(DecoradorDeCafe):
 cafe = Chantilly(Leite(CafeSimples()))
 print(f"{cafe.get_descricao()} | Custo: R${cafe.get_custo():.2f}")
 # Saída: Café puro, com leite, com chantilly | Custo: R$6.50
+
 ```
+
+## **❓ Pergunta para a Turma**
+"Se criarmos um novo decorador para 'caramelo' (R$2.0), como ficaria o custo de um CafeSimples com Leite e Caramelo?"
+
+```python
+class Caramelo(DecoradorDeCafe):
+    def get_descricao(self):
+        return f"{self._cafe.get_descricao()}, com caramelo"
+
+    def get_custo(self):
+        return self._cafe.get_custo() + 2.0
+
+cafe = Caramelo(Leite(CafeSimples()))
+print(cafe.get_custo())  # 3.0 (Café) + 1.5 (Leite) + 2.0 (Caramelo) = R$6.50
+```
+
+
 # Diagrama do Padrão Decorator
 ```
         +---------------------+
